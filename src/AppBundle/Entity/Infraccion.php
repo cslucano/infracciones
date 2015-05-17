@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Infraccion
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\InfraccionRepository")
  */
 class Infraccion
 {
@@ -52,9 +52,16 @@ class Infraccion
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_infraccion", type="datetime")
+     * @ORM\Column(name="fecha_infraccion", type="datetime", nullable=true)
      */
     private $fechaInfraccion;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="hora", type="float", nullable=true)
+     */
+    private $hora;
 
     /**
      * @var string
@@ -77,6 +84,19 @@ class Infraccion
      */
     private $cuadra;
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lat", type="float", nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="lon", type="float", nullable=true)
+     */
+    private $lon;
 
     /**
      * Get id
@@ -209,6 +229,30 @@ class Infraccion
     }
 
     /**
+     * Set hora
+     *
+     * @param float $hora
+     *
+     * @return Infraccion
+     */
+    public function setHora($hora)
+    {
+        $this->hora = $hora;
+
+        return $this;
+    }
+
+    /**
+     * Get hora
+     *
+     * @return float
+     */
+    public function getHora()
+    {
+        return $this->hora;
+    }
+
+    /**
      * Set placa
      *
      * @param string $placa
@@ -278,6 +322,78 @@ class Infraccion
     public function getCuadra()
     {
         return $this->cuadra;
+    }
+
+    /**
+     * Set isValid
+     *
+     * @param boolean $valid
+     *
+     * @return Infraccion
+     */
+    public function setValid($valid)
+    {
+        $this->isValid = $valid;
+
+        return $this;
+    }
+
+    /**
+     * Get isValid
+     *
+     * @return boolean
+     */
+    public function isValid()
+    {
+        return $this->isValid;
+    }
+
+    /**
+     * Set lat
+     *
+     * @param float $lat
+     *
+     * @return Infraccion
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    /**
+     * Get lat
+     *
+     * @return float
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * Set lon
+     *
+     * @param float $lon
+     *
+     * @return Infraccion
+     */
+    public function setLon($lon)
+    {
+        $this->lon = $lon;
+
+        return $this;
+    }
+
+    /**
+     * Get lon
+     *
+     * @return float
+     */
+    public function getLon()
+    {
+        return $this->lon;
     }
 }
 

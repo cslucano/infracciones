@@ -1,3 +1,7 @@
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+infraccion  :
+    type:     rest
+    resource: AppBundle\Controller\InfraccionController

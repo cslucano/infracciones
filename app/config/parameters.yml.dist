@@ -18,3 +18,5 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            9ab406dab95a4363a39f0dc68368fa93a94bdf96
+
+    muni_mira_api_key: 3d7f88b46b3a118e30d60ef0275266a8307d25e0

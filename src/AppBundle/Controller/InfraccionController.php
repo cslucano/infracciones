@@ -2,15 +2,27 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Entity\Infraccion;
+use AppBundle\Entity\InfraccionRepository;
+use FOS\RestBundle\Controller\FOSRestController;
+use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends BaseController
+class InfraccionController extends FOSRestController
 {
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function indexAction()
+    public function getInfraccionAction(Request $request)
     {
-        return $this->render('default/index.html.twig');
+        $desde = $request->query->get('desde', 16);
+        $hasta = $request->query->get('hasta', 16.5);
+
+        /** @var InfraccionRepository $repo */
+        $repo = $this->getDoctrine()->getRepository(Infraccion::class);
+        $data = $repo->getByWindow($desde, $hasta);
+
+        $view = $this->view($data, 200)
+            ->setTemplate("AppBundle:Infraccion:getInfraccion.html.twig")
+            ->setTemplateVar('infracciones')
+        ;
+
+        return $this->handleView($view);
     }
 }
