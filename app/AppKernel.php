@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
+            new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -73,9 +73,14 @@ class Comercio
     /**
      * @var array
      *
-     * @ORM\Column(name="minhash", type="array")
+     * @ORM\Column(name="minhash", type="array", nullable=true)
      */
     private $minhash;
+
+    public function __construct()
+    {
+        $this->minhash = [];
+    }
 
     /**
      * Get id
@@ -266,7 +271,7 @@ class Comercio
 
     public function setMinhash(array $minhashes)
     {
-        $this->minhash = array();
+        $this->minhash = [];
 
         foreach ($minhashes as $minhash) {
             $this->addMinhash($minhash);
