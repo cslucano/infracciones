@@ -70,6 +70,12 @@ class Comercio
      */
     private $lat;
 
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="minhash", type="array")
+     */
+    private $minhash;
 
     /**
      * Get id
@@ -248,5 +254,38 @@ class Comercio
     {
         return $this->lat;
     }
+
+    public function addMinhash($minhash)
+    {
+        if (!in_array($minhash, $this->minhash, true)) {
+            $this->minhash[] = $minhash;
+        }
+
+        return $this;
+    }
+
+    public function setMinhash(array $minhashes)
+    {
+        $this->minhash = array();
+
+        foreach ($minhashes as $minhash) {
+            $this->addMinhash($minhash);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Returns minhash
+     *
+     * @return array
+     */
+    public function getMinhash()
+    {
+        $minhashes = $this->minhash;
+
+        return array_unique($minhashes);
+    }
+
 }
 

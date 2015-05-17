@@ -14,7 +14,7 @@ class UpdateCoordenadasCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('infraccion:update')
+            ->setName('muni:infraccion:updatecoordenadas')
             ->setDescription('Actualizar coordenadas de las infracciones')
         ;
     }
