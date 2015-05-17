@@ -13,7 +13,10 @@ class InfraccionRepository extends EntityRepository
             ->where(
                 $qb->expr()->andX(
                     $qb->expr()->gte('i.hora', ':desde'),
-                    $qb->expr()->lt('i.hora', ':hasta')
+                    $qb->expr()->lt('i.hora', ':hasta'),
+                    $qb->expr()->isNotNull('i.lat'),
+                    $qb->expr()->isNotNull('i.lon'),
+                    $qb->expr()->isNotNull('i.hora')
                 )
             )
             ->setParameters(
