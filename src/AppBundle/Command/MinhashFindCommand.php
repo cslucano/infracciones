@@ -67,7 +67,6 @@ class MinhashFindCommand extends ContainerAwareCommand
 
         if($first->getNombreVia() == $second->getNombreVia()) {
             $deltanum = $first->getNumeroVia() - $second->getNumeroVia();
-            $output->writeln(sprintf('%s %s %s %s', $first->getId(), $second->getId(), $first->getNumeroVia(), $second->getNumeroVia()));
             $deltalat = ($first->getLat() - $second->getLat())/$deltanum;
             $deltalon = ($first->getLon() - $second->getLon())/$deltanum;
 
