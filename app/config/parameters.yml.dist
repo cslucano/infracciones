@@ -1,0 +1,20 @@
+# This file is a "template" of what your parameters.yml file should look like
+parameters:
+    database_driver:   pdo_pgsql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     leyes
+    database_user:     leyes
+    database_password: leyes
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            es
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            9ab406dab95a4363a39f0dc68368fa93a94bdf96
